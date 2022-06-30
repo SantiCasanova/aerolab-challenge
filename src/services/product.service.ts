@@ -3,12 +3,17 @@ import Base from './base.service';
 
 class ProductDataService extends Base{
   async getAll() {
-    const data: Product[] = await super.get('products').then(response => response.data)
-    return data;
+    try {
+      const data: Product[] = await super.get('products').then(response => response.data)
+      return data;
+    } catch (error) {
+      console.error(error)
+    }
   }
 
-  getHistory() {
-    return super.axios.get<string>('/redeem')
+  async getHistory() {
+    const history: Product[] | [] = await super.get('redeem').then(response => response.data)
+    return history;
   }
 }
 

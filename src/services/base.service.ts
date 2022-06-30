@@ -1,6 +1,6 @@
 import axios from "axios"
 
-class Base {
+class Base{
   axios
   constructor() {
     this.axios = axios.create({
@@ -14,16 +14,10 @@ class Base {
   async get(entity: string) {
     return await this.axios.get(`/${entity}`)
   }
+
+  async post(entity: string, data: number) {
+    return await this.axios.post<number>(`/${entity}`, data)
+  }
 }
 
 export default Base;
-
-// class ProductsService extends Base {
-//   async get() {
-//     const data = await super.get('user/me')
-//     return data
-//   }
-// }
-
-// const productsService = new ProductsService()
-// productsService.get()

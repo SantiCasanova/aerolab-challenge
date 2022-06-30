@@ -1,13 +1,22 @@
 import { User } from '~/interfaces/user.interface';
-import ApiService from './base.service';
+import Base from './base.service';
 
-class UserDataService extends ApiService{
-  getUser() {
-    return super.axios.get<User>('/user/me')
+class UserDataService extends Base{
+  async getUser() {
+    try {
+      const userData :User[] = await super.get('user/me').then(response => response.data)
+      return userData;
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  addPoints(data: number) {
-    return super.axios.post<number>('/user/points', data)
+  async addPoints(data: number) {
+    try {
+      return super.post('user/points', data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
