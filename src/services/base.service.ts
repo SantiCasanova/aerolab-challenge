@@ -15,7 +15,7 @@ class Base{
     return await this.axios.get(`/${entity}`)
   }
 
-  async post(entity: string, data: number) {
+  async post(entity: string, data: number | string) {
     return await this.axios.post<number>(`/${entity}`, data)
   }
 }

@@ -15,6 +15,14 @@ class ProductDataService extends Base{
     const history: Product[] | [] = await super.get('redeem').then(response => response.data)
     return history;
   }
+
+  async redeemProduct(productID: string) {
+    try {
+      return await super.post('user/points', productID)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
 
 export default new ProductDataService();

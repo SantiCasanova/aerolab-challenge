@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+  .logo { 
+    margin-left: 15px;
+  }
+
+  .rightSide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-right: 15px;
+    justify-content: center;
+
+    .userPoints {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      justify-content: center;
+    }
+  }
+}
