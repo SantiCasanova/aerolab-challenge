@@ -4,15 +4,14 @@ import Base from './base.service';
 class ProductDataService extends Base{
   async getAll() {
     try {
-      const data: Product[] = await super.get('products').then(response => response.data)
-      return data;
+      return super.get('products')
     } catch (error) {
-      console.error(error)
+      console.log(error)
     }
   }
 
   async getHistory() {
-    const history: Product[] | [] = await super.get('redeem').then(response => response.data)
+    const history: Product[] | [] = await super.get('redeem').then(response => response.data).catch(error => console.log(error))
     return history;
   }
 

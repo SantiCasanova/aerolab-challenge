@@ -3,12 +3,8 @@ import Base from './base.service';
 
 class UserDataService extends Base{
   async getUser() {
-    try {
-      const userData :User[] = await super.get('user/me').then(response => response.data)
-      return userData;
-    } catch (error) {
-      console.log(error)
-    }
+    const userData :User[] = await super.get('user/me').then(response => response.data).catch(error => console.log(error))
+    return userData;
   }
 
   async addPoints(data: number) {
